@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Restaurants.Application.Dishes.Dtos
 {
-	public class DishesDto : Profile
+	public class DishesProfile : Profile
 	{
-		public DishesDto() 
+		public DishesProfile() 
 		{ 
 			CreateMap<Dish, DishDto>();
 		}
