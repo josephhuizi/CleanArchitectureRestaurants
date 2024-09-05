@@ -3,21 +3,6 @@
 @Restaurants.API_HostAddress = {{host}}:{{port}}
 @restaurantID = 1
 
-GET {{Restaurants.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
-
-POST {{Restaurants.API_HostAddress}}/weatherforecast/generate?resultsNumber=6
-Content-Type: application/json
-
-{
-    "MinimumTemperature": 10,
-    "MaximumTemperature": 20
-}
-
-###
-
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
@@ -32,11 +17,11 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Sp",
+  "Name": "KFC Santa Mónica",
   "Description": "A culinary experience like no other",
-  "Category": "Japanese",
+  "Category": "American",
   "HasDelivery": true,
-  "ContactEmail": "info@gourmetdelights.com",
+  "ContactEmail": "info@kfcdelights.com",
   "ContactNumber": "555-123-4567",
   "City": "Metropolis",
   "Street": "456 Gourmet Avenue",
