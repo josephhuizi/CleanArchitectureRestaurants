@@ -20,7 +20,9 @@ namespace Restaurants.Infrastructure.Repositories
 
 		async Task<Restaurant?> IRestaurantsRepository.FindByIdAsync(int id)
 		{
-			var restaurant = await dbContext.Restaurants.FindAsync(id);
+			var restaurant = await dbContext.Restaurants
+				.Include(r => r.Dishes)
+				.FirstOrDefaultAsync(x => x.Id == id);
 			return restaurant;
 		}
 	}

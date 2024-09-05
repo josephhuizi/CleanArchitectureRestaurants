@@ -1,7 +1,7 @@
 @host = http://localhost
 @port = 5149 
 @Restaurants.API_HostAddress = {{host}}:{{port}}
-@restaurantID = 2
+@restaurantID = 1
 
 GET {{Restaurants.API_HostAddress}}/weatherforecast/
 Accept: application/json
