@@ -1,7 +1,7 @@
 @host = http://localhost
 @port = 5149 
 @Restaurants.API_HostAddress = {{host}}:{{port}}
-@restaurantID = 1
+@restaurantID = 7
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
@@ -26,4 +26,19 @@ Content-Type: application/json
   "City": "Metropolis",
   "Street": "456 Gourmet Avenue",
   "PostalCode": "54-555"
+}
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantID}}
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantID}}
+Content-Type: application/json
+
+{
+  "Name": "KCF California",
+  "Description": "Chicken culinary experience in California",
+  "HasDevelivery": false
 }
