@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Restaurants.Application.Restaurants.Commands.UpdateRestaurant
 {
-	public class UpdateRestaurantCommand : IRequest<bool>
+	public class UpdateRestaurantCommand : IRequest
 	{
 		[JsonIgnore]
 		public int Id { get; set; }

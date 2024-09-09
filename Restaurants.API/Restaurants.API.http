@@ -1,7 +1,7 @@
 @host = http://localhost
 @port = 5149 
 @Restaurants.API_HostAddress = {{host}}:{{port}}
-@restaurantID = 6
+@restaurantID = 2
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
@@ -41,4 +41,16 @@ Content-Type: application/json
   "Name": "KCF California",
   "Description": "Chicken culinary experience in California",
   "HasDevelivery": false
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantID}}/dishes
+Content-Type: application/json
+
+{
+  "Name": "Chilli Chiken",
+  "Description": "Delicious Chilli Chicken to go",
+  "KiloCalories": 10,
+  "Price": 10
 }
