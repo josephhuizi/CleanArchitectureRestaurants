@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication();
 
@@ -16,9 +17,7 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Host.UseSerilog((context, configuration) =>
 	configuration
-		.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-		.MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Information)
-		.WriteTo.Console()
+		.ReadFrom.Configuration(context.Configuration)
 	);
 
 var app = builder.Build();
@@ -29,6 +28,12 @@ var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 await seeder.SeedAsync();
 
 // Configure the HTTP request pipeline.
+
+app.UseSerilogRequestLogging();
+
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
