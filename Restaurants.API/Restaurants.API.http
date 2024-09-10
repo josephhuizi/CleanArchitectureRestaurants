@@ -54,3 +54,23 @@ Content-Type: application/json
   "KiloCalories": 10,
   "Price": 10
 }
+
+###
+
+POST {{Restaurants.API_HostAddress}}/register
+Content-Type: application/json
+
+{
+  "Email": "joseph.huizi@gmail.com",
+  "Password": "12345pA."
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/login
+Content-Type: application/json
+
+{
+  "Email": "joseph.huizi@gmail.com",
+  "Password": "12345pA."
+}
