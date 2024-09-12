@@ -2,6 +2,7 @@
 @port = 5149 
 @Restaurants.API_HostAddress = {{host}}:{{port}}
 @restaurantID = 2
+@authToken = CfDJ8KddLcyPb2JHu2qOLVV6R0CMAj2yPm6dwKsKtrw6aqZHK-NETa8FkWadjTWAInveHVQBrnA0-kZiS_ZcjBuWv94inHGMg-wYDQhwsGqIK3J1XIvGdXR5au_TR9-WAwkKxYcjlOKEr8TfUAajtuxWqlOLp1fE4FD5Uyj0bn4tqnt6nXYKcztAKILJpWg69OP8xlrFP0dUHY5fBr89FUQZEntSCuEd-zpU7iqjQ65S4DH6Cp5Ur1r1gGQcTLGKzvEQ_g6DUbwgzj5kVNextMavbowhdXWYkdjoRq0p53lu2TkKe3Aojccp1H-CpB8MB3H7mfKJNea1ZnBJaenrF7fwUne2eoaTaOsv4g6oAmD4DTj1VddQebfWgUOEt6q0c1wlDV618kQa30LRRUw6-MfRBzW_xvfeCUJXUlp8cpR90CUt5DZgNjMZs4rRWHp4objjPAwokDcWb2F_HA_w_iE6kA6-dDRQKCKo_RzqO6t4GUDh3-lHZkN-7C4ZPJnU7FmPn_5Yn5Rm8VPSW8kcFFXNESMumBy4_8NfKku0urFQ8MJ8RN2VGOL196UBo_xFvChlX7wUtcZk-J6HVxsQbOMZHzf6CwUnM9beqUpOJNfqtlEDSAQVtD671rbrkeONfoHwf4kT7Q6ZLxDmFk2sqPLjthdNo9INa-WF5gYzjMwcQSMZNwJFXt8VQPtCMTZi3Cd_4KRp4Hw_Br73ZIPJopHxOZ8dadFvFV27B07V8-KRXonNAF2zwXH2H_UzUCMb6WB03RUmkqzkXzBjiImcl7BfXcvJ7Arw4PxfVonnAmjEih21gD9nBH7okgOF6W3r0Xe12vFz76m-b0vNQy3ixqcDps8
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
@@ -14,6 +15,7 @@ Content-Type: application/json
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
@@ -57,20 +59,20 @@ Content-Type: application/json
 
 ###
 
-POST {{Restaurants.API_HostAddress}}/register
+POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "Email": "joseph.huizi@gmail.com",
+  "Email": "joseph.huizi.admin@gmail.com",
   "Password": "12345pA."
 }
 
 ###
 
-POST {{Restaurants.API_HostAddress}}/login
+POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "Email": "joseph.huizi@gmail.com",
+  "Email": "joseph.huizi.owner@gmail.com",
   "Password": "12345pA."
 }
