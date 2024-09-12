@@ -26,8 +26,5 @@ internal class AssignUserRoleCommandHandler(ILogger<AssignUserRoleCommandHandler
 			throw new NotFoundException("The role doesn't exist");
 
 		await userManager.AddToRoleAsync(user, role.Name!);
-
-
-
 	}
 }
