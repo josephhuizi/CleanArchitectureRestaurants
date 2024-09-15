@@ -4,11 +4,6 @@ using Microsoft.Extensions.Logging;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurants.Application.Dishes.Commands.CreateDish;
 public class CreateDishCommandHandler(ILogger<CreateDishCommandHandler> logger,
@@ -19,7 +14,7 @@ public class CreateDishCommandHandler(ILogger<CreateDishCommandHandler> logger,
 	{
 		logger.LogInformation("Creating new dish: {@dishRequest}", request);
 		var restaurant = await restaurantsRepository.FindByIdAsync(request.RestaurantId);
-		if (restaurant == null) throw new NotFoundException("Restaurant not found");
+		if (restaurant == null) throw new RestaurantNotFoundException();
 
 		var dish = mapper.Map<Dish>(request);
 

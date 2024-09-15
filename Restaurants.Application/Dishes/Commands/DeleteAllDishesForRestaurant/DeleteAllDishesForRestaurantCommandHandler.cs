@@ -19,7 +19,7 @@ public class DeleteAllDishesForRestaurantCommandHandler(ILogger<DeleteAllDishesF
 		logger.LogInformation("Deleting all dishes for restaurant {restaurantId}", request.RestaurantId);
 
 		var restaurant = await restaurantsRepository.FindByIdAsync(request.RestaurantId);
-		if (restaurant == null) throw new NotFoundException("The restaurant doesn't exist");
+		if (restaurant == null) throw new RestaurantNotFoundException();
 
 		await dishesRepository.DeleteAll(restaurant.Dishes);
 	}

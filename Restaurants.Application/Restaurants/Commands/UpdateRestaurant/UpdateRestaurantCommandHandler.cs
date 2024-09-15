@@ -21,7 +21,7 @@ namespace Restaurants.Application.Restaurants.Commands.UpdateRestaurant
 			var restaurant = await restaurantsRepository.FindByIdAsync(request.Id);
 
 			if (restaurant is null)
-				throw new NotFoundException($"Restaurant with {request.Id} doesn't exist");
+				throw new RestaurantNotFoundException();
 
 			restaurant.Name = request.Name;
 			restaurant.Description = request.Description;

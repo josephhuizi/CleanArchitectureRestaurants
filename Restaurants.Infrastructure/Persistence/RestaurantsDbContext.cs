@@ -13,7 +13,7 @@ internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> optio
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Host=localhost;Database=Restaurants;Username=postgres;Password=x65N4VCgpGd7z9yt";
+        var connectionString = "Host=localhost;Database=Restaurants;Username=postgres;Password=YnPBPi3S89h3g5vM";
         // var connectionString = "postgresql+asyncpg://postgres:x65N4VCgpGd7z9yt@localhost:5432/Restaurants";
         optionsBuilder
             .UseNpgsql(connectionString);
