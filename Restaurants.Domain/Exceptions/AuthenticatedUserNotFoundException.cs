@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Restaurants.Domain.Exceptions;
+
+public class AuthenticatedUserNotFoundException : Exception
+{
+	public AuthenticatedUserNotFoundException() : base("The authenticated user is not available")
+	{
+	}
+}

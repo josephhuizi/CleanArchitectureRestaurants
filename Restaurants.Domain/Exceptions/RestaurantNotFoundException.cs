@@ -1,7 +1,7 @@
 ﻿
 namespace Restaurants.Domain.Exceptions;
 
-public class RestaurantNotFoundException : DomainException
+public class RestaurantNotFoundException : BusinessRuleException
 {
     public RestaurantNotFoundException() : base("The restaurant is not registered", nameof(RestaurantNotFoundException))
     {

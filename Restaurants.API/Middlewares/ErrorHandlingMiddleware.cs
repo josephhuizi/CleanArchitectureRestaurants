@@ -1,4 +1,5 @@
-﻿using Restaurants.Domain.Exceptions;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Restaurants.Domain.Exceptions;
 
 namespace Restaurants.API.Middlewares;
 public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : IMiddleware
@@ -9,15 +10,15 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
 		{
 			await next.Invoke(context);
 		}
-		catch(DomainException domainException)
+		catch(BusinessRuleException exception)
 		{
 			context.Response.StatusCode = 400;
 			await context.Response.WriteAsJsonAsync(new
 			{
 				Error = new
 				{
-					Type = domainException.Type,
-					Message = domainException.Message
+					Type = exception.Type,
+					Message = exception.Message
 				}
 			});
 		}
@@ -27,6 +28,12 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
 			await context.Response.WriteAsync(notFound.Message);
 
 			logger.LogWarning(notFound.Message);
+		}
+		catch(AuthenticatedUserNotFoundException exception)
+		{
+			context.Response.StatusCode = 401;
+
+			logger.LogWarning(exception.Message);
 		}
 		catch (Exception ex)
 		{
