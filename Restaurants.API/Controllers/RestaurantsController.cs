@@ -27,7 +27,7 @@ namespace Restaurants.API.Controllers
 		[HttpGet("{id}")]
 		public async Task<ActionResult<RestaurantDto>> GetRestaurant([FromRoute] int id)
 		{
-			var restaurant = await mediator.Send(new GetRestaurantByIdQuery(){ Id = id});
+			var restaurant = await mediator.Send(new GetRestaurantByIdQuery(){ Id = id });
 
 			return Ok(restaurant);
 		}
