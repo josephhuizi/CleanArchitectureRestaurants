@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Users;
+namespace Restaurants.Domain.Exceptions;
 
-public interface IUserContext
+public class ForbiddenException : Exception
 {
-	CurrentUser GetCurrentUser();
 }

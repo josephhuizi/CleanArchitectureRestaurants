@@ -35,6 +35,10 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
 
 			logger.LogWarning(exception.Message);
 		}
+		catch(ForbiddenException exception)
+		{
+			context.Response.StatusCode = 403;
+		}
 		catch (Exception ex)
 		{
 			logger.LogError(ex, ex.Message);

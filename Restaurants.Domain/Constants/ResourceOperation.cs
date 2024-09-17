@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Users;
+namespace Restaurants.Domain.Constants;
 
-public interface IUserContext
+public enum ResourceOperation
 {
-	CurrentUser GetCurrentUser();
+	Create,
+	Read,
+	Update, 
+	Delete
 }
