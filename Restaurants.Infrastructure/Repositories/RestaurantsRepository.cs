@@ -12,6 +12,11 @@ namespace Restaurants.Infrastructure.Repositories
 {
 	internal class RestaurantsRepository(RestaurantsDbContext dbContext) : IRestaurantsRepository
 	{
+		public async Task<IEnumerable<Restaurant>> GetAllByOwnerAsync(string ownerId)
+		{
+			var restaurants = await dbContext.Restaurants.Where(r => r.OwnerId == ownerId).ToListAsync();
+			return restaurants;
+		}
 		public async Task<IEnumerable<Restaurant>> GetAllAsync()
 		{
 			var restaurants = await dbContext.Restaurants.ToListAsync();
