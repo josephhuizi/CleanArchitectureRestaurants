@@ -22,7 +22,9 @@ public class GetAllRestaurantsQueryHandler(
 		logger.LogInformation("Getting all restaurants");
 		var (restaurants, totalCount) = await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase, 
 			request.PageSize,
-			request.PageNumber);
+			request.PageNumber,
+			request.SortBy,
+			request.SortDirection);
 		var restaurantsDto = mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
 		var result = new PagedResult<RestaurantDto>(restaurantsDto, totalCount, request.PageSize, request.PageNumber);
 		return result;
